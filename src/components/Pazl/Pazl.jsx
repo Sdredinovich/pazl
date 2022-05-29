@@ -22,7 +22,8 @@ const ferma = [
 ];
 
 export const Pazl = (props) => {
-  
+  const [start, setStart] = useState(false)
+  const [hidNum, setHidnum] = useState(null)
   const [state, setState] = useState({
     1: 1,
     2: 2,
@@ -33,20 +34,21 @@ export const Pazl = (props) => {
     7: 7,
     8: 8,
     9: 9,
-  });
-  function gameOver(obj) {
-    //Проверяет, все ли элементы находятся на своих позициях
-    return Object.keys(obj).every((key) => +key === obj[key]);
+});
+  
+  function gameOver(obj, hidNum) {
+    //Возвращает массив с ключами, кроме"hidNum" 
+    let keysArr = Object.keys(obj).filter(key=>+key!==hidNum)
+    // Проверяет, все ли элементы находятся на своих позициях и возвращает значение
+    return keysArr.every((key) => +key === obj[key]);
   }
-  // useEffect(()=>{
-  //   gameOver(state)&&alert('f')
-  // }, [state])
 
   function getKeyByValue(object, value) { 
+    //Находит ключ по значению и возвращает его
     return Object.keys(object).find((key) => object[key] === value);
   }
-  const hidNum = 5;
-
+ 
+console.log('Отрисовка');
 
   const keyDown = (e) => {
     
@@ -54,8 +56,8 @@ export const Pazl = (props) => {
   const vpravo = () => {
     if (
       state[state[hidNum] - 1] &&
-      state[hidNum] - 1 !== 6 &&
-      state[hidNum] - 1 !== 3
+      state[hidNum] !== 7 &&
+      state[hidNum]  !== 4
     ) {
       const twoNum = getKeyByValue(state, state[hidNum] - 1);
       setState({
@@ -68,8 +70,8 @@ export const Pazl = (props) => {
   const vlevo = () => {
     if (
       state[state[hidNum] + 1] &&
-      state[hidNum] + 1 !== 4 &&
-      state[hidNum] + 1 !== 7
+      state[hidNum]  !== 3 &&
+      state[hidNum]  !== 6
     ) {
       const twoNum = getKeyByValue(state, state[hidNum] + 1);
       setState({
@@ -118,34 +120,45 @@ export const Pazl = (props) => {
     }
   };
   function mixer(obj) {
-    //Перемешивает части фотографии
+
+    // Перемешивает пазл
     const mixedArr = Object.keys(obj).sort(() => Math.random() - 0.5);
     const newObj = {}
     mixedArr.map((value, index)=>{
       newObj[index+1]=+value
     })
+    // Выбирает случайный элемент массива(фото, чтобы вытащить его из пазла)
+    let rand = Math.floor(Math.random() * mixedArr.length);
+    setHidnum(mixedArr[rand])
     setState({...newObj})
+    // Запускает игру
+    setStart(true)
 
   }
+  useEffect(()=>{
+    gameOver(state, hidNum)&&setStart(false)
+  }, [state])
 
   return (
-    <div autoFocus tabIndex="1" onKeyDown={keyDown} className={s.pazl}>
+    <div autoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
       <div className={s.gameWindow}>
         {ferma.map((element, id) => {
           return (
             <div
               key={id}
               className={`${s.element} ${s["element" + state[id + 1]]} ${
-                hidNum == id + 1 && s.free
+                hidNum == id + 1 && start && s.missing
+              } ${
+                hidNum == id + 1 && !start && s.missing2
               }`}
             >
-              <img className={s.elementImg} src={element} />
+              <img className={`${s.elementImg} ${!start&&s.offBorder}`} src={element} />
             </div>
           );
         })}
       </div>
-      <button onClick={()=>{
-         mixer(state)
+      <button  onClick={()=>{
+        !start&&mixer(state)
 
       }}>Начать</button>
     </div>
