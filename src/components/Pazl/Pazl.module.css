@@ -42,7 +42,6 @@ border-radius: 10px;
 .selectModeBtn{
   border: 3px solid black;
   background-color: greenyellow ;
-
   width: 100px;
   height: 30px;
   margin: 0;
@@ -66,55 +65,127 @@ border-color: greenyellow ;
 }
 
 .element {
+
+  position: absolute;
+  border: 1px solid black;
+  transition: top 0.4s, left 0.4s, right 0.4s, bottom 0.4s, border-width 0.5s, width 0.5s, height 0.5s;
+}
+.element3x3{
   width: 155px;
   height: 155px;
-  transition: top 0.4s, left 0.4s, right 0.4s, bottom 0.4s;
 }
-.elementImg {
-  width: 100%;
-  height: 100%;
-  border: 1px solid black;
-  transition: border-width 0.3s, width 0.5s, height 0.5s;
+.element4x4{
+  width: 115px;
+  height: 115px;
 }
 
+.elementImg {
+  width: 100%;
+  height: 100%;}
+
+/* 3x3 */
 .element13x3 {
-  position: absolute;
   top: 0;
   left: 0;}
 .element23x3 {
-  position: absolute;
   top: 0;
   left: 160px;}
 .element33x3 {
-  position: absolute;
   top: 0;
   left: 320px;}
 .element43x3 {
-  position: absolute;
   top: 160px;
   left: 0;}
 .element53x3 {
-  position: absolute;
   top: 160px;
   left: 160px;}
 .element63x3 {
-  position: absolute;
   top: 160px;
   left: 320px;}
 .element73x3 {
-  position: absolute;
   top: 320px;
   left: 0;}
 .element83x3 {
-  position: absolute;
   top: 320px;
   left: 160px;}
 .element93x3 {
-  position: absolute;
   top: 320px;
   left: 320px}
 
-  .startEl{
+
+/* 4x4 */
+.element14x4{
+  top: 0;
+  left: 0}
+.element24x4{
+  top: 0;
+  left: 120px;}
+.element34x4{
+  top: 0;
+  left: 240px;}
+.element44x4{
+  top: 0;
+  left: 360px;}
+.element54x4{
+  top: 120px;
+  left: 0px;}
+.element64x4{
+  top: 120px;
+  left: 120px}
+.element74x4{
+  top: 120px;
+  left: 240px}
+.element84x4{
+  top: 120px;
+  left: 360px}
+.element94x4{
+  top: 240px;
+  left: 0px}
+.element104x4{
+  top: 240px;
+  left: 120px}
+.element114x4{
+  top: 240px;
+  left: 240px}
+.element124x4{
+  top: 240px;
+  left: 360px}
+.element134x4{
+  top: 360px;
+  left: 0px}
+.element144x4{
+  top: 360px;
+  left: 120px}
+.element154x4{
+  
+  top: 360px;
+  left: 240px}
+.element164x4{
+  
+  top: 360px;
+  left: 360px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .startEl3x3{
+    transform: translate(2px, 2px);
+  }
+  .startEl4x4{
     transform: translate(2px, 2px);
   }
   
@@ -134,7 +205,7 @@ border-color: greenyellow ;
       left: 380px;
       width: 85px;
       height: 85px;
-      transition: top 0.5s, left 0.5s, right 0.5s, bottom 0.5s;
+      transition: top 0.7s, left 0.7s, right 0.7s, bottom 0.7s;
       z-index: 1;
     }
 
@@ -150,7 +221,7 @@ border-color: greenyellow ;
 }
 
 .missing2 {
-transition: top 0.5s, left 0.5s, right 0.5s, bottom 0.5s, width 0.5s, height 0.5s;;
+transition: top 0.7s, left 0.7s, right 0.7s, bottom 0.7s, width 0.5s, height 0.5s, border-width 0.5s;
 z-index: 1;
 
 }

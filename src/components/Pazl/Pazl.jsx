@@ -25,7 +25,6 @@ import ferma13_4x4 from "./../../photos/ferma13-4x4.jpg";
 import ferma14_4x4 from "./../../photos/ferma14-4x4.jpg";
 import ferma15_4x4 from "./../../photos/ferma15-4x4.jpg";
 import ferma16_4x4 from "./../../photos/ferma16-4x4.jpg";
-
 import shrekBtn from "./../../photos/shrek.jpg";
 import shrek1_3x3 from "./../../photos/shrek1-3x3.jpg";
 import shrek2_3x3 from "./../../photos/shrek2-3x3.jpg";
@@ -104,21 +103,57 @@ const shrek = {'3x3':[
   shrek9_3x3
 ]}
 
+const x3 = {   
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+}
+
+  const x4 ={
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      6: 6,
+      7: 7,
+      8: 8,
+      9: 9,
+      10:10,
+      11:11,
+      12:12,
+      13:13,
+      14:14,
+      15:15,
+      16:16,
+  }
+  
+  const mode4x4 = {
+    'placement':'4x4',
+    'leftErr': [4, 8, 12],
+    'rightErr': [5, 9, 13],
+    'step':4
+  
+  }
+  const mode3x3 = {
+    'placement':'3x3',
+    'leftErr': [3, 6],
+    'rightErr': [4, 7],
+    'step':3
+  
+  }
+
 export const Pazl = (props) => {
   const [start, setStart] = useState(false)
-  const [hidNum, setHidnum] = useState(9)
-  const [state, setState] = useState({
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 8,
-    9: 9,
-});
-const [mode, setMode] = useState('3x3')
+  const [hidNum, setHidnum] = useState(8)
+  const [state, setState] = useState(x3);
+const [mode, setMode] = useState(mode3x3)
 const [currentPhoto, setCurrentPhoto] = useState(ferma)
   
   function gameOver(obj, hidNum) {
@@ -144,56 +179,79 @@ setState(newObj)
   setCurrentPhoto(photo)
   }
 }
-  
- 
-
   const keyDown = (e) => {
-    
-
   const vpravo = () => {
     if (
       state[state[hidNum] - 1] &&
-      state[hidNum] !== 7 &&
-      state[hidNum]  !== 4
+      state[hidNum] !== mode.rightErr[0] &&
+      state[hidNum]  !== mode.rightErr[1]
     ) {
-      const twoNum = getKeyByValue(state, state[hidNum] - 1);
-      setState({
-        ...state,
-        [hidNum]: state[hidNum] - 1,
-        [+twoNum]: state[hidNum],
-      });
+if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
+  console.log(mode.rightErr[2]);
+  console.log(state[hidNum] );
+  const twoNum = getKeyByValue(state, state[hidNum] - 1);
+  setState({
+    ...state,
+    [hidNum]: state[hidNum] - 1,
+    [+twoNum]: state[hidNum],
+  });
+} else if(mode.placement =='3x3'){
+ 
+  const twoNum = getKeyByValue(state, state[hidNum] - 1);
+  setState({
+    ...state,
+    [hidNum]: state[hidNum] - 1,
+    [+twoNum]: state[hidNum],
+  });
+}
+ 
     }
   };
   const vlevo = () => {
     if (
       state[state[hidNum] + 1] &&
-      state[hidNum]  !== 3 &&
-      state[hidNum]  !== 6
+      state[hidNum]  !== mode.leftErr[0] &&
+      state[hidNum]  !== mode.leftErr[1]
+  
     ) {
-      const twoNum = getKeyByValue(state, state[hidNum] + 1);
-      setState({
-        ...state,
-        [hidNum]: state[hidNum] + 1,
-        [+twoNum]: state[hidNum],
-      });
+
+      if(mode.placement =='4x4'&&state[hidNum]  !== mode.leftErr[2]){
+        const twoNum = getKeyByValue(state, state[hidNum] + 1);
+        setState({
+          ...state,
+          [hidNum]: state[hidNum] + 1,
+          [+twoNum]: state[hidNum],
+        });
+      }
+      else if(mode.placement =='3x3'){
+        console.log('ff2');
+
+        const twoNum = getKeyByValue(state, state[hidNum] + 1);
+        setState({
+          ...state,
+          [hidNum]: state[hidNum] + 1,
+          [+twoNum]: state[hidNum],
+        });
+      }
+
     }
   };
   const vniz = () => {
-    if (state[state[hidNum] - 3]) {
-      const twoNum = getKeyByValue(state, state[hidNum] - 3);
+    if (state[state[hidNum] - mode.step]) {
+      const twoNum = getKeyByValue(state, state[hidNum] - mode.step);
       setState({
         ...state,
-        [hidNum]: state[hidNum] - 3,
+        [hidNum]: state[hidNum] - mode.step,
         [+twoNum]: state[hidNum],
       });
     }
   };
   const vverh = () => {
-    if (state[+state[hidNum] + 3]) {
-      const twoNum = getKeyByValue(state, state[hidNum] + 3);
+    if (state[+state[hidNum] + mode.step]) {
+      const twoNum = getKeyByValue(state, state[hidNum] + mode.step);
       setState({
         ...state,
-        [hidNum]: state[hidNum] + 3,
+        [hidNum]: state[hidNum] + mode.step,
         [twoNum]: state[hidNum],
       });
     }
@@ -227,7 +285,7 @@ setState(newObj)
     // Выбирает случайный элемент массива(фото, чтобы вытащить его из пазла)
     let rand = Math.floor(Math.random() * mixedArr.length);
      setHidnum(mixedArr[rand])
-    // setState({...newObj})
+    setState({...newObj})
     // Запускает игру
     setStart(true)
 
@@ -237,7 +295,7 @@ setState(newObj)
   }, [state])
 
   return (
-    <div autoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
+    <divautoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
       <div className={s.pazlContent}>
         <div className={s.selectDiv}>
           <img onClick={()=>{currentPhotoChange(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.currentImg}`}/>
@@ -247,10 +305,16 @@ setState(newObj)
         </div>
         <div>
       <div className={s.gameWindow}>
-        {currentPhoto[mode].map((element, id) => {
-          return (<div key={id} className={`${s.element} ${s["element" + state[id + 1]+mode]} ${hidNum == id + 1 && start && s.missing} 
-          ${hidNum == id + 1 && !start && s.missing2} ${start && s.startEl}`}>
-         <img className={`${s.elementImg} ${!start&&s['offBorder'+mode]}`} src={element} />
+        {currentPhoto[mode.placement].map((element, id) => {
+          return (<div key={id}className={`
+          ${s.element} 
+          ${s['element' + mode.placement]} 
+          ${!start&&s['offBorder'+mode.placement]} 
+          ${s["element" + state[id + 1]+mode.placement]} 
+          ${hidNum == id + 1 && start && s.missing} 
+          ${hidNum == id + 1 && !start && s.missing2} 
+          ${start && s['startEl'+mode.placement]}`}>
+         <img className={`${s.elementImg} `} src={element} />
             </div>
           );
         })}
@@ -258,17 +322,19 @@ setState(newObj)
           
         </div>
       </div>
-      <button className={s.startBtn} disabled={start} onClick={()=>{
+      <button  className={s.startBtn} disabled={start} onClick={()=>{
         mixer(state)
 
       }}>Начать</button>
       </div>
       <div className={s.selectDiv}>
         <button className={s.selectModeBtn}>3x3</button>
-        <button className={s.selectModeBtn}>4x4</button>
+        <button onClick={()=>[
+          setMode('4x4')
+        ]} className={s.selectModeBtn}>4x4</button>
         </div>
       </div>
 
-    </div>
+    </divautoFocus>
   );
 };
