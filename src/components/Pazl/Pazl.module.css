@@ -7,15 +7,56 @@
   }
 }
 .pazl {
-  border: 1px solid red;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pazlContent {
+  border: 2px solid black;
+border-radius: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  background-color: cornflowerblue;
+  padding: 10px;
+
+}
+.selectDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  
+}
+.selectPhotoImg{
+  border: 3px solid black;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s;
+
+  
+}
+.selectModeBtn{
+  border: 3px solid black;
+  background-color: greenyellow ;
+
+  width: 100px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.currentImg{
+transform: scale(1.05);
+border-width: 5px;
+border-color: greenyellow ;
 }
 
 .gameWindow {
-  border: 1px solid red;
+  border: 1px solid black;
   width: 480px;
   height: 480px;
   display: flex;
@@ -27,67 +68,103 @@
 .element {
   width: 155px;
   height: 155px;
-  transition: top 0.2s, left 0.2s, right 0.2s, bottom 0.2s;
+  transition: top 0.4s, left 0.4s, right 0.4s, bottom 0.4s;
 }
 .elementImg {
   width: 100%;
   height: 100%;
   border: 1px solid black;
-  transition: border-width 0.3s, width 0.3s, height 0.3s;
+  transition: border-width 0.3s, width 0.5s, height 0.5s;
 }
 
-.element1 {
+.element13x3 {
   position: absolute;
   top: 0;
   left: 0;}
-.element2 {
+.element23x3 {
   position: absolute;
   top: 0;
   left: 160px;}
-.element3 {
+.element33x3 {
   position: absolute;
   top: 0;
   left: 320px;}
-.element4 {
+.element43x3 {
   position: absolute;
   top: 160px;
   left: 0;}
-.element5 {
+.element53x3 {
   position: absolute;
   top: 160px;
   left: 160px;}
-.element6 {
+.element63x3 {
   position: absolute;
   top: 160px;
   left: 320px;}
-.element7 {
+.element73x3 {
   position: absolute;
   top: 320px;
   left: 0;}
-.element8 {
+.element83x3 {
   position: absolute;
   top: 320px;
   left: 160px;}
-.element9 {
+.element93x3 {
   position: absolute;
   top: 320px;
   left: 320px}
 
+  .startEl{
+    transform: translate(2px, 2px);
+  }
+  
+  .startBtn{
+    width: 360px;
+    height: 90px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+  
+    
+  }
+  
  .missing {
-      top: 160px;
-      left: 650px;
+      top: 490px;
+      left: 380px;
+      width: 85px;
+      height: 85px;
       transition: top 0.5s, left 0.5s, right 0.5s, bottom 0.5s;
+      z-index: 1;
     }
-.missing2 {
 
-transition: top 0.5s, left 0.5s, right 0.5s, bottom 0.5s;
+.emptyDiv{
+  position: absolute;
+  top: 487px;
+  left: 377px;
+  border: 2px solid black;
+  width: 93px;
+  height: 93px;
+  border-radius: 5px;
+
+}
+
+.missing2 {
+transition: top 0.5s, left 0.5s, right 0.5s, bottom 0.5s, width 0.5s, height 0.5s;;
+z-index: 1;
+
 }
 
 .vverhVniz {
   width: 400px;
 }
-.offBorder {
+.offBorder3x3 {
   border-width: 0px;
   width: 160px;
   height: 160px;
+}
+.offBorder4x4 {
+  border-width: 0px;
+  width: 120px;
+  height: 120px;
 }
