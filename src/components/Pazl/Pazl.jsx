@@ -1,109 +1,176 @@
 import s from "./Pazl.module.css";
 import fermaBtn from "./../../photos/ferma.jpg";
-import ferma1_3x3 from "./../../photos/ferma1-3x3.png";
-import ferma2_3x3 from "./../../photos/ferma2-3x3.png";
-import ferma3_3x3 from "./../../photos/ferma3-3x3.png";
-import ferma4_3x3 from "./../../photos/ferma4-3x3.png";
-import ferma5_3x3 from "./../../photos/ferma5-3x3.png";
-import ferma6_3x3 from "./../../photos/ferma6-3x3.png";
-import ferma7_3x3 from "./../../photos/ferma7-3x3.png";
-import ferma8_3x3 from "./../../photos/ferma8-3x3.png";
-import ferma9_3x3 from "./../../photos/ferma9-3x3.png";
-import ferma1_4x4 from "./../../photos/ferma1-4x4.jpg";
-import ferma2_4x4 from "./../../photos/ferma2-4x4.jpg";
-import ferma3_4x4 from "./../../photos/ferma3-4x4.jpg";
-import ferma4_4x4 from "./../../photos/ferma4-4x4.jpg";
-import ferma5_4x4 from "./../../photos/ferma5-4x4.jpg";
-import ferma6_4x4 from "./../../photos/ferma6-4x4.jpg";
-import ferma7_4x4 from "./../../photos/ferma7-4x4.jpg";
-import ferma8_4x4 from "./../../photos/ferma8-4x4.jpg";
-import ferma9_4x4 from "./../../photos/ferma9-4x4.jpg";
-import ferma10_4x4 from "./../../photos/ferma10-4x4.jpg";
-import ferma11_4x4 from "./../../photos/ferma11-4x4.jpg";
-import ferma12_4x4 from "./../../photos/ferma12-4x4.jpg";
-import ferma13_4x4 from "./../../photos/ferma13-4x4.jpg";
-import ferma14_4x4 from "./../../photos/ferma14-4x4.jpg";
-import ferma15_4x4 from "./../../photos/ferma15-4x4.jpg";
-import ferma16_4x4 from "./../../photos/ferma16-4x4.jpg";
+import ferma3x3_1 from "./../../photos/ferma3x3_1.png";
+import ferma3x3_2 from "./../../photos/ferma3x3_2.png";
+import ferma3x3_3 from "./../../photos/ferma3x3_3.png";
+import ferma3x3_4 from "./../../photos/ferma3x3_4.png";
+import ferma3x3_5 from "./../../photos/ferma3x3_5.png";
+import ferma3x3_6 from "./../../photos/ferma3x3_6.png";
+import ferma3x3_7 from "./../../photos/ferma3x3_7.png";
+import ferma3x3_8 from "./../../photos/ferma3x3_8.png";
+import ferma3x3_9 from "./../../photos/ferma3x3_9.png";
+import ferma4x4_1 from "./../../photos/ferma4x4_1.jpg";
+import ferma4x4_2 from "./../../photos/ferma4x4_2.jpg";
+import ferma4x4_3 from "./../../photos/ferma4x4_3.jpg";
+import ferma4x4_4 from "./../../photos/ferma4x4_4.jpg";
+import ferma4x4_5 from "./../../photos/ferma4x4_5.jpg";
+import ferma4x4_6 from "./../../photos/ferma4x4_6.jpg";
+import ferma4x4_7 from "./../../photos/ferma4x4_7.jpg";
+import ferma4x4_8 from "./../../photos/ferma4x4_8.jpg";
+import ferma4x4_9 from "./../../photos/ferma4x4_9.jpg";
+import ferma4x4_10 from "./../../photos/ferma4x4_10.jpg";
+import ferma4x4_11 from "./../../photos/ferma4x4_11.jpg";
+import ferma4x4_12 from "./../../photos/ferma4x4_12.jpg";
+import ferma4x4_13 from "./../../photos/ferma4x4_13.jpg";
+import ferma4x4_14 from "./../../photos/ferma4x4_14.jpg";
+import ferma4x4_15 from "./../../photos/ferma4x4_15.jpg";
+import ferma4x4_16 from "./../../photos/ferma4x4_16.jpg";
 import shrekBtn from "./../../photos/shrek.jpg";
-import shrek1_3x3 from "./../../photos/shrek1-3x3.jpg";
-import shrek2_3x3 from "./../../photos/shrek2-3x3.jpg";
-import shrek3_3x3 from "./../../photos/shrek3-3x3.jpg";
-import shrek4_3x3 from "./../../photos/shrek4-3x3.jpg";
-import shrek5_3x3 from "./../../photos/shrek5-3x3.jpg";
-import shrek6_3x3 from "./../../photos/shrek6-3x3.jpg";
-import shrek7_3x3 from "./../../photos/shrek7-3x3.jpg";
-import shrek8_3x3 from "./../../photos/shrek8-3x3.jpg";
-import shrek9_3x3 from "./../../photos/shrek9-3x3.jpg";
+import shrek3x3_1 from "./../../photos/shrek3x3_1.jpg";
+import shrek3x3_2 from "./../../photos/shrek3x3_2.jpg";
+import shrek3x3_3 from "./../../photos/shrek3x3_3.jpg";
+import shrek3x3_4 from "./../../photos/shrek3x3_4.jpg";
+import shrek3x3_5 from "./../../photos/shrek3x3_5.jpg";
+import shrek3x3_6 from "./../../photos/shrek3x3_6.jpg";
+import shrek3x3_7 from "./../../photos/shrek3x3_7.jpg";
+import shrek3x3_8 from "./../../photos/shrek3x3_8.jpg";
+import shrek3x3_9 from "./../../photos/shrek3x3_9.jpg";
+import shrek4x4_1 from "./../../photos/shrek4x4_1.jpg";
+import shrek4x4_2 from "./../../photos/shrek4x4_2.jpg";
+import shrek4x4_3 from "./../../photos/shrek4x4_3.jpg";
+import shrek4x4_4 from "./../../photos/shrek4x4_4.jpg";
+import shrek4x4_5 from "./../../photos/shrek4x4_5.jpg";
+import shrek4x4_6 from "./../../photos/shrek4x4_6.jpg";
+import shrek4x4_7 from "./../../photos/shrek4x4_7.jpg";
+import shrek4x4_8 from "./../../photos/shrek4x4_8.jpg";
+import shrek4x4_9 from "./../../photos/shrek4x4_9.jpg";
+import shrek4x4_10 from "./../../photos/shrek4x4_10.jpg";
+import shrek4x4_11 from "./../../photos/shrek4x4_11.jpg";
+import shrek4x4_12 from "./../../photos/shrek4x4_12.jpg";
+import shrek4x4_13 from "./../../photos/shrek4x4_13.jpg";
+import shrek4x4_14 from "./../../photos/shrek4x4_14.jpg";
+import shrek4x4_15 from "./../../photos/shrek4x4_15.jpg";
+import shrek4x4_16 from "./../../photos/shrek4x4_16.jpg";
 import mashaBtn from "./../../photos/masha.jpg";
-import masha1_3x3 from "./../../photos/masha1-3x3.jpg";
-import masha2_3x3 from "./../../photos/masha2-3x3.jpg";
-import masha3_3x3 from "./../../photos/masha3-3x3.jpg";
-import masha4_3x3 from "./../../photos/masha4-3x3.jpg";
-import masha5_3x3 from "./../../photos/masha5-3x3.jpg";
-import masha6_3x3 from "./../../photos/masha6-3x3.jpg";
-import masha7_3x3 from "./../../photos/masha7-3x3.jpg";
-import masha8_3x3 from "./../../photos/masha8-3x3.jpg";
-import masha9_3x3 from "./../../photos/masha9-3x3.jpg";
-
-
-
+import masha3x3_1 from "./../../photos/masha3x3_1.jpg";
+import masha3x3_2 from "./../../photos/masha3x3_2.jpg";
+import masha3x3_3 from "./../../photos/masha3x3_3.jpg";
+import masha3x3_4 from "./../../photos/masha3x3_4.jpg";
+import masha3x3_5 from "./../../photos/masha3x3_5.jpg";
+import masha3x3_6 from "./../../photos/masha3x3_6.jpg";
+import masha3x3_7 from "./../../photos/masha3x3_7.jpg";
+import masha3x3_8 from "./../../photos/masha3x3_8.jpg";
+import masha3x3_9 from "./../../photos/masha3x3_9.jpg";
+import masha4x4_1 from "./../../photos/masha4x4_1.jpg";
+import masha4x4_2 from "./../../photos/masha4x4_2.jpg";
+import masha4x4_3 from "./../../photos/masha4x4_3.jpg";
+import masha4x4_4 from "./../../photos/masha4x4_4.jpg";
+import masha4x4_5 from "./../../photos/masha4x4_5.jpg";
+import masha4x4_6 from "./../../photos/masha4x4_6.jpg";
+import masha4x4_7 from "./../../photos/masha4x4_7.jpg";
+import masha4x4_8 from "./../../photos/masha4x4_8.jpg";
+import masha4x4_9 from "./../../photos/masha4x4_9.jpg";
+import masha4x4_10 from "./../../photos/masha4x4_10.jpg";
+import masha4x4_11 from "./../../photos/masha4x4_11.jpg";
+import masha4x4_12 from "./../../photos/masha4x4_12.jpg";
+import masha4x4_13 from "./../../photos/masha4x4_13.jpg";
+import masha4x4_14 from "./../../photos/masha4x4_14.jpg";
+import masha4x4_15 from "./../../photos/masha4x4_15.jpg";
+import masha4x4_16 from "./../../photos/masha4x4_16.jpg";
 import { useEffect, useState } from "react";
 const ferma = {
   '3x3':[
-  ferma1_3x3,
-  ferma2_3x3,
-  ferma3_3x3,
-  ferma4_3x3,
-  ferma5_3x3,
-  ferma6_3x3,
-  ferma7_3x3,
-  ferma8_3x3,
-  ferma9_3x3,
-],
+  ferma3x3_1,
+  ferma3x3_2,
+  ferma3x3_3,
+  ferma3x3_4,
+  ferma3x3_5,
+  ferma3x3_6,
+  ferma3x3_7,
+  ferma3x3_8,
+  ferma3x3_9,
+  ],
 '4x4':[
-  ferma1_4x4,
-  ferma2_4x4,
-  ferma3_4x4,
-  ferma4_4x4,
-  ferma5_4x4,
-  ferma6_4x4,
-  ferma7_4x4,
-  ferma8_4x4,
-  ferma9_4x4,
-  ferma10_4x4,
-  ferma11_4x4,
-  ferma12_4x4,
-  ferma13_4x4,
-  ferma14_4x4,
-  ferma15_4x4,
-  ferma16_4x4,
+  ferma4x4_1,
+  ferma4x4_2,
+  ferma4x4_3,
+  ferma4x4_4,
+  ferma4x4_5,
+  ferma4x4_6,
+  ferma4x4_7,
+  ferma4x4_8,
+  ferma4x4_9,
+  ferma4x4_10,
+  ferma4x4_11,
+  ferma4x4_12,
+  ferma4x4_13,
+  ferma4x4_14,
+  ferma4x4_15,
+  ferma4x4_16,
+
 
 ]};
 const masha = {'3x3':[
-  masha1_3x3,
-  masha2_3x3,
-  masha3_3x3,
-  masha4_3x3,
-  masha5_3x3,
-  masha6_3x3,
-  masha7_3x3,
-  masha8_3x3,
-  masha9_3x3,
+  masha3x3_1,
+  masha3x3_2,
+  masha3x3_3,
+  masha3x3_4,
+  masha3x3_5,
+  masha3x3_6,
+  masha3x3_7,
+  masha3x3_8,
+  masha3x3_9,
+],
+'4x4':[
+  masha4x4_1,
+  masha4x4_2,
+  masha4x4_3,
+  masha4x4_4,
+  masha4x4_5,
+  masha4x4_6,
+  masha4x4_7,
+  masha4x4_8,
+  masha4x4_9,
+  masha4x4_10,
+  masha4x4_11,
+  masha4x4_12,
+  masha4x4_13,
+  masha4x4_14,
+  masha4x4_15,
+  masha4x4_16,
 ]}
 const shrek = {'3x3':[
-  shrek1_3x3,
-  shrek2_3x3,
-  shrek3_3x3,
-  shrek4_3x3, 
-  shrek5_3x3, 
-  shrek6_3x3, 
-  shrek7_3x3, 
-  shrek8_3x3,
-  shrek9_3x3
+  shrek3x3_1,
+  shrek3x3_2,
+  shrek3x3_3,
+  shrek3x3_4, 
+  shrek3x3_5, 
+  shrek3x3_6, 
+  shrek3x3_7, 
+  shrek3x3_8,
+  shrek3x3_9
+],
+'4x4':[
+  shrek4x4_1,
+  shrek4x4_2,
+  shrek4x4_3,
+  shrek4x4_4,
+  shrek4x4_5,
+  shrek4x4_6,
+  shrek4x4_7,
+  shrek4x4_8,
+  shrek4x4_9,
+  shrek4x4_10,
+  shrek4x4_11,
+  shrek4x4_12,
+  shrek4x4_13,
+  shrek4x4_14, 
+  shrek4x4_15,
+  shrek4x4_16,
+
 ]}
 
-const x3 = {   
+const positions3x3 = {   
   1: 1,
   2: 2,
   3: 3,
@@ -115,7 +182,7 @@ const x3 = {
   9: 9,
 }
 
-  const x4 ={
+  const positions4x4 ={
       1: 1,
       2: 2,
       3: 3,
@@ -133,7 +200,7 @@ const x3 = {
       15:15,
       16:16,
   }
-  
+
   const mode4x4 = {
     'placement':'4x4',
     'leftErr': [4, 8, 12],
@@ -152,9 +219,16 @@ const x3 = {
 export const Pazl = (props) => {
   const [start, setStart] = useState(false)
   const [hidNum, setHidnum] = useState(8)
-  const [state, setState] = useState(x3);
+  const [state, setState] = useState(positions3x3);
 const [mode, setMode] = useState(mode3x3)
 const [currentPhoto, setCurrentPhoto] = useState(ferma)
+function changeMode(newPositions, newMode ){
+  if(newMode!==mode){
+    setMode(newMode)
+    setState(newPositions)
+  }
+  
+}
   
   function gameOver(obj, hidNum) {
     //Возвращает массив с ключами, кроме"hidNum" 
@@ -167,14 +241,14 @@ const [currentPhoto, setCurrentPhoto] = useState(ferma)
     //Находит ключ по значению и возвращает его
     return Object.keys(object).find((key) => object[key] === value);
   }
-function currentPhotoChange(photo){
+function changeCurrentPhotoChange(photo){
   if(currentPhoto!==photo){
     const keysArr = Object.keys(state)
     const newObj = {}
     keysArr.map((value, index)=>{
       newObj[index+1]=+index+1
     })
-setState(newObj)
+  setState(newObj)
   setStart(false)
   setCurrentPhoto(photo)
   }
@@ -298,9 +372,9 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
     <divautoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
       <div className={s.pazlContent}>
         <div className={s.selectDiv}>
-          <img onClick={()=>{currentPhotoChange(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.currentImg}`}/>
-          <img onClick={()=>{currentPhotoChange(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectPhotoImg} ${currentPhoto==shrek&&s.currentImg}`}/>
-          <img onClick={()=>{currentPhotoChange(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectPhotoImg} ${currentPhoto==masha&&s.currentImg}`}/>
+          <img onClick={()=>{changeCurrentPhotoChange(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.current}`}/>
+          <img onClick={()=>{changeCurrentPhotoChange(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectPhotoImg} ${currentPhoto==shrek&&s.current}`}/>
+          <img onClick={()=>{changeCurrentPhotoChange(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectPhotoImg} ${currentPhoto==masha&&s.current}`}/>
         
         </div>
         <div>
@@ -328,10 +402,13 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
       }}>Начать</button>
       </div>
       <div className={s.selectDiv}>
-        <button className={s.selectModeBtn}>3x3</button>
-        <button onClick={()=>[
-          setMode('4x4')
-        ]} className={s.selectModeBtn}>4x4</button>
+        <button  onClick={()=>{
+          changeMode(positions3x3, mode3x3)
+        }} className={`${s.selectModeBtn} ${mode===mode3x3&&s.current}`}>3x3</button>
+        <button onClick={()=>{
+                  changeMode(positions4x4, mode4x4)
+
+        }} className={`${s.selectModeBtn} ${mode!==mode3x3&&s.current}`}>4x4</button>
         </div>
       </div>
 
