@@ -215,20 +215,18 @@ const positions3x3 = {
     'step':3
   
   }
-
 export const Pazl = (props) => {
+
+
+console.log('отрисовка');
+
+
   const [start, setStart] = useState(false)
-  const [hidNum, setHidnum] = useState(8)
+  const [hidNum, setHidnum] = useState(null)
   const [state, setState] = useState(positions3x3);
 const [mode, setMode] = useState(mode3x3)
 const [currentPhoto, setCurrentPhoto] = useState(ferma)
-function changeMode(newPositions, newMode ){
-  if(newMode!==mode){
-    setMode(newMode)
-    setState(newPositions)
-  }
-  
-}
+
   
   function gameOver(obj, hidNum) {
     //Возвращает массив с ключами, кроме"hidNum" 
@@ -241,7 +239,15 @@ function changeMode(newPositions, newMode ){
     //Находит ключ по значению и возвращает его
     return Object.keys(object).find((key) => object[key] === value);
   }
-function changeCurrentPhotoChange(photo){
+  function changeMode(newPositions, newMode ){
+    if(newMode!==mode){
+      setMode(newMode)
+      setState(newPositions)
+      setStart(false)
+    }
+    
+  }
+function changeCurrentPhoto(photo){
   if(currentPhoto!==photo){
     const keysArr = Object.keys(state)
     const newObj = {}
@@ -261,8 +267,6 @@ function changeCurrentPhotoChange(photo){
       state[hidNum]  !== mode.rightErr[1]
     ) {
 if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
-  console.log(mode.rightErr[2]);
-  console.log(state[hidNum] );
   const twoNum = getKeyByValue(state, state[hidNum] - 1);
   setState({
     ...state,
@@ -298,7 +302,6 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
         });
       }
       else if(mode.placement =='3x3'){
-        console.log('ff2');
 
         const twoNum = getKeyByValue(state, state[hidNum] + 1);
         setState({
@@ -364,17 +367,18 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
     setStart(true)
 
   }
+
   useEffect(()=>{
-    gameOver(state, hidNum)&&setStart(false)
+    gameOver(state, hidNum)&&start&&setStart(false)
   }, [state])
 
   return (
-    <div autoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
+    <div autoFocus tabIndex="0" onKeyDown={start?keyDown:undefined} className={s.pazl}>
       <div className={s.pazlContent}>
         <div className={s.selectDiv}>
-          <img onClick={()=>{changeCurrentPhotoChange(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.current}`}/>
-          <img onClick={()=>{changeCurrentPhotoChange(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectPhotoImg} ${currentPhoto==shrek&&s.current}`}/>
-          <img onClick={()=>{changeCurrentPhotoChange(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectPhotoImg} ${currentPhoto==masha&&s.current}`}/>
+          <img onClick={()=>{changeCurrentPhoto(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.current}`}/>
+          <img onClick={()=>{changeCurrentPhoto(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectPhotoImg} ${currentPhoto==shrek&&s.current}`}/>
+          <img onClick={()=>{changeCurrentPhoto(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectPhotoImg} ${currentPhoto==masha&&s.current}`}/>
         
         </div>
         <div>
