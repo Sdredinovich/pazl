@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pazl/static/css/main.5ac362a9.css",
-    "main.js": "/pazl/static/js/main.3e79faa0.js",
+    "main.css": "/pazl/static/css/main.d8d0f14e.css",
+    "main.js": "/pazl/static/js/main.b27e168d.js",
     "static/js/787.67a0ea48.chunk.js": "/pazl/static/js/787.67a0ea48.chunk.js",
     "static/media/masha.jpg": "/pazl/static/media/masha.6e2cc130eff1f92128fc.jpg",
     "static/media/shrek.jpg": "/pazl/static/media/shrek.44f924130a9777689f59.jpg",
@@ -79,12 +79,12 @@
     "static/media/shrek4x4_3.jpg": "/pazl/static/media/shrek4x4_3.4a13c6e89daa26d79406.jpg",
     "static/media/ferma4x4_2.jpg": "/pazl/static/media/ferma4x4_2.cbd6c9357c43266ac4c0.jpg",
     "index.html": "/pazl/index.html",
-    "main.5ac362a9.css.map": "/pazl/static/css/main.5ac362a9.css.map",
-    "main.3e79faa0.js.map": "/pazl/static/js/main.3e79faa0.js.map",
+    "main.d8d0f14e.css.map": "/pazl/static/css/main.d8d0f14e.css.map",
+    "main.b27e168d.js.map": "/pazl/static/js/main.b27e168d.js.map",
     "787.67a0ea48.chunk.js.map": "/pazl/static/js/787.67a0ea48.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ac362a9.css",
-    "static/js/main.3e79faa0.js"
+    "static/css/main.d8d0f14e.css",
+    "static/js/main.b27e168d.js"
   ]
 }
