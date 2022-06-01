@@ -369,7 +369,7 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
   }, [state])
 
   return (
-    <divautoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
+    <div autoFocus tabIndex="1" onKeyDown={start?keyDown:undefined} className={s.pazl}>
       <div className={s.pazlContent}>
         <div className={s.selectDiv}>
           <img onClick={()=>{changeCurrentPhotoChange(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.current}`}/>
@@ -412,6 +412,6 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
         </div>
       </div>
 
-    </divautoFocus>
+    </div>
   );
 };
