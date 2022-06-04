@@ -218,36 +218,33 @@ const positions3x3 = {
 export const Pazl = (props) => {
 
 
-console.log('отрисовка');
-
-
-  const [start, setStart] = useState(false)
-  const [hidNum, setHidnum] = useState(null)
-  const [state, setState] = useState(positions3x3);
+const [start, setStart] = useState(false)
+const [hidNum, setHidnum] = useState(null)
+const [state, setState] = useState(positions3x3);
 const [mode, setMode] = useState(mode3x3)
 const [currentPhoto, setCurrentPhoto] = useState(ferma)
 
-  
-  function gameOver(obj, hidNum) {
-    //Возвращает массив с ключами, кроме"hidNum" 
-    let keysArr = Object.keys(obj).filter(key=>+key!==hidNum)
-    // Проверяет, все ли элементы находятся на своих позициях и возвращает значение
-    return keysArr.every((key) => +key === obj[key]);
-  }
 
-  function getKeyByValue(object, value) { 
+
+  
+function gameOver(obj, hidNum) {
+    //Возвращает массив с ключами, кроме hidNum
+    let keysArr = Object.keys(obj).filter(key=>+key!==hidNum)
+    // Проверяет, все ли элементы массива находятся на своих позициях и возвращает значение
+    return keysArr.every((key) => +key === obj[key]);
+}
+function getKeyByValue(object, value) { 
     //Находит ключ по значению и возвращает его
     return Object.keys(object).find((key) => object[key] === value);
-  }
-  function changeMode(newPositions, newMode ){
+}
+function changeMode(newPositions, newMode ){
     if(newMode!==mode){
       setMode(newMode)
       setState(newPositions)
       setStart(false)
     }
-    
-  }
-function changeCurrentPhoto(photo){
+}
+function changePhoto(photo){
   if(currentPhoto!==photo){
     const keysArr = Object.keys(state)
     const newObj = {}
@@ -259,7 +256,7 @@ function changeCurrentPhoto(photo){
   setCurrentPhoto(photo)
   }
 }
-  const keyDown = (e) => {
+const keyDown = (e) => {
   const vpravo = () => {
     if (
       state[state[hidNum] - 1] &&
@@ -350,8 +347,8 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
       default:
         break;
     }
-  };
-  function mixer(obj) {
+};
+function mixer(obj) {
 
     // Перемешивает пазл
     const mixedArr = Object.keys(obj).sort(() => Math.random() - 0.5);
@@ -366,32 +363,30 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
     // Запускает игру
     setStart(true)
 
-  }
+}
 
   useEffect(()=>{
     gameOver(state, hidNum)&&start&&setStart(false)
   }, [state])
+  
+  
 
   return (
     <div autoFocus tabIndex="0" onKeyDown={start?keyDown:undefined} className={s.pazl}>
-      <div className={s.pazlContent}>
-        <div className={s.selectDiv}>
-          <img onClick={()=>{changeCurrentPhoto(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectPhotoImg} ${currentPhoto==ferma&&s.current}`}/>
-          <img onClick={()=>{changeCurrentPhoto(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectPhotoImg} ${currentPhoto==shrek&&s.current}`}/>
-          <img onClick={()=>{changeCurrentPhoto(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectPhotoImg} ${currentPhoto==masha&&s.current}`}/>
-        
+        <div className={s.selectSettingDiv}>
+          <img onClick={()=>{changePhoto(ferma)}} alt="Выбираемое фото" src={fermaBtn} className={`${s.selectSetting} ${currentPhoto===ferma&&s.current}`}/>
+          <img onClick={()=>{changePhoto(shrek)}} alt="Выбираемое фото" src={shrekBtn} className={`${s.selectSetting} ${currentPhoto===shrek&&s.current}`}/>
+          <img onClick={()=>{changePhoto(masha)}} alt="Выбираемое фото" src={mashaBtn} className={`${s.selectSetting} ${currentPhoto===masha&&s.current}`}/>
         </div>
         <div>
       <div className={s.gameWindow}>
         {currentPhoto[mode.placement].map((element, id) => {
-          return (<div key={id}className={`
+          return (<div key={id} className={`
           ${s.element} 
-          ${s['element' + mode.placement]} 
-          ${!start&&s['offBorder'+mode.placement]} 
+          ${start?s['start' + mode.placement]:s['stop'+mode.placement]} 
           ${s["element" + state[id + 1]+mode.placement]} 
-          ${hidNum == id + 1 && start && s.missing} 
-          ${hidNum == id + 1 && !start && s.missing2} 
-          ${start && s['startEl'+mode.placement]}`}>
+          ${(hidNum == id + 1 && start) && s.missing || (hidNum == id + 1 && !start) && s.missing2 } 
+`}>
          <img className={`${s.elementImg} `} src={element} />
             </div>
           );
@@ -400,21 +395,16 @@ if(mode.placement =='4x4'&&state[hidNum]!== mode.rightErr[2]){
           
         </div>
       </div>
-      <button  className={s.startBtn} disabled={start} onClick={()=>{
-        mixer(state)
-
-      }}>Начать</button>
+      <button  className={s.startBtn} disabled={start} onClick={()=>{mixer(state)}}>Начать</button>
       </div>
-      <div className={s.selectDiv}>
-        <button  onClick={()=>{
-          changeMode(positions3x3, mode3x3)
-        }} className={`${s.selectModeBtn} ${mode===mode3x3&&s.current}`}>3x3</button>
-        <button onClick={()=>{
-                  changeMode(positions4x4, mode4x4)
-
-        }} className={`${s.selectModeBtn} ${mode!==mode3x3&&s.current}`}>4x4</button>
+      <div className={s.selectSettingDiv}>
+        <button  
+        onClick={()=>{changeMode(positions3x3, mode3x3)}} 
+        className={`${s.selectSetting} ${mode===mode3x3&&s.current}`}>3x3</button>
+        <button 
+        onClick={()=>{changeMode(positions4x4, mode4x4)}} 
+        className={`${s.selectSetting} ${mode!==mode3x3&&s.current}`}>4x4</button>
         </div>
-      </div>
 
     </div>
   );
